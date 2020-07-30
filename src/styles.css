@@ -1,0 +1,39 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.container {
+  flex-wrap: wrap;
+  display: flex;
+  margin: 20% auto;
+  text-align: center;
+}
+
+.weatherApp {
+  margin: 10px;
+  color: gray;
+}
+
+.weatherApp > p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.weatherApp > img {
+  width: 70px;
+  height: 70px;
+}
+
+.weatherApp > span {
+  display: flex;
+  font-size: 15px;
+  justify-content: space-around;
+}
