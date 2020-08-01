@@ -1,13 +1,21 @@
 import React from "react";
 import "./styles.css";
 
-export default async function Weather() {
-  let api =
-    "http://api.openweathermap.org/data/2.5/weather?q=Prudent%C3%B3polis&units=metric&appid=17b6590bec41785683bf963c68520f35";
+async function apiResponse() {
+  let api_weather =
+    "https://api.openweathermap.org/data/2.5/weather?q=Prudent%C3%B3polis&units=metric&appid=17b6590bec41785683bf963c68520f35";
 
-  let response = await fetch(api);
-  let json = response.json();
-  console.log(json);
+  let response = await fetch(api_weather);
+  let json = await response.json();
+  return json;
+}
+
+export default function Weather() {
+  apiResponse()
+    .then(data => {
+      console.log(data.name);
+    })
+    .catch(err => console.error(err));
 
   return (
     <div className="container">
