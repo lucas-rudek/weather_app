@@ -12,7 +12,7 @@
 .container {
   flex-wrap: wrap;
   display: flex;
-  margin: 20% auto;
+  margin: 10% auto;
   text-align: center;
 }
 
@@ -33,6 +33,7 @@
 }
 
 .weatherApp > span {
+  margin-left: 10px;
   display: flex;
   font-size: 15px;
   justify-content: space-around;

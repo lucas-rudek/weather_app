@@ -11,16 +11,18 @@ async function apiResponse() {
 }
 
 export default function Weather() {
-  apiResponse()
-    .then(data => {
-      console.log(data.name);
+  let nome = apiResponse()
+    .then(async data => {
+      let nome = await data.name;
     })
     .catch(err => console.error(err));
+
+  console.log(nome);
 
   return (
     <div className="container">
       <div className="weatherApp">
-        <p>Monday</p>
+        <p>{}</p>
         <img
           src="https://freepngimg.com/thumb/weather/23523-4-weather-file.png"
           alt="weather"
