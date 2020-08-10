@@ -11,25 +11,20 @@ export default function Weather() {
   useEffect(() => {
     async function apiResponse() {
       let res = await axios(api_weather);
-      setData(res.map(res => {
-          temp_min: res.data.daily[0].temp.min.toString().slice(0, 2),
-          temp_max: res.data.daily[0].temp.max.toString().slice(0, 2),
-          icon: `http://openweathermap.org/img/wn/${res.data.daily[0].weather[0].icon}@2x.png`
-      }));
+      let newRes = res.data.daily.map((res) => console.log(res));
+      setData(newRes);
     }
     apiResponse();
   }, []);
-
-  console.log(data[0])
 
   return (
     <div className="container">
       <div className="weatherApp">
         <p>Monday</p>
-        <img src={data.icon} alt="weather" />
+        <img src="" alt="weather" />
         <span>
-          <p>{data.temp_min}°</p>
-          <p>{data.temp_max}°</p>
+          <p>°</p>
+          <p>°</p>
         </span>
       </div>
     </div>
