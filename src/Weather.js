@@ -12,25 +12,23 @@ export default function Weather() {
     async function apiResponse() {
       let res = await axios(api_weather);
       setData({
-      name: res.data.name,
-      temp_min: res.data.main.temp_min,
-      temp_max: res.data.main.temp_max
+        name: res.data.name,
+        temp_min: res.data.main.temp_min.toString().slice(0, 2),
+        temp_max: res.data.main.temp_max.toString().slice(0, 2),
+        icon: `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`
       });
     }
     apiResponse();
   }, []);
-  
+
   return (
     <div className="container">
       <div className="weatherApp">
         <p>{data.name}</p>
-        <img
-          src="https://freepngimg.com/thumb/weather/23523-4-weather-file.png"
-          alt="weather"
-        />
+        <img src={data.icon} alt="weather" />
         <span>
-          <p>{data.temp_min}°</p>
-          <p>{data.temp_max}°</p>
+          <p>{data.temp_min}°C</p>
+          <p>{data.temp_max}°C</p>
         </span>
       </div>
     </div>
