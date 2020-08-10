@@ -11,11 +11,15 @@ export default function Weather() {
   useEffect(() => {
     async function apiResponse() {
       let res = await axios(api_weather);
-      setData(res.data);
+      setData({
+      name: res.data.name,
+      temp_min: res.data.main.temp_min,
+      temp_max: res.data.main.temp_max
+      });
     }
     apiResponse();
   }, []);
-
+  
   return (
     <div className="container">
       <div className="weatherApp">
@@ -25,8 +29,8 @@ export default function Weather() {
           alt="weather"
         />
         <span>
-          <p>{data.main.temp_min}°</p>
-          <p>{data.main.temp_max}°</p>
+          <p>{data.temp_min}°</p>
+          <p>{data.temp_max}°</p>
         </span>
       </div>
     </div>
