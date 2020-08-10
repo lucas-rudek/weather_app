@@ -3,7 +3,7 @@ import "./styles.css";
 import axios from "axios";
 
 let api_weather =
-  "https://api.openweathermap.org/data/2.5/weather?q=Prudent%C3%B3polis&units=metric&appid=17b6590bec41785683bf963c68520f35";
+  "https://api.openweathermap.org/data/2.5/onecall?lat=-25.2142293&lon=-50.9824194&&appid=17b6590bec41785683bf963c68520f35&units=metric";
 
 export default function Weather() {
   const [data, setData] = useState([]);
@@ -11,24 +11,25 @@ export default function Weather() {
   useEffect(() => {
     async function apiResponse() {
       let res = await axios(api_weather);
-      setData({
-        name: res.data.name,
-        temp_min: res.data.main.temp_min.toString().slice(0, 2),
-        temp_max: res.data.main.temp_max.toString().slice(0, 2),
-        icon: `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`
-      });
+      setData(res.map(res => {
+          temp_min: res.data.daily[0].temp.min.toString().slice(0, 2),
+          temp_max: res.data.daily[0].temp.max.toString().slice(0, 2),
+          icon: `http://openweathermap.org/img/wn/${res.data.daily[0].weather[0].icon}@2x.png`
+      }));
     }
     apiResponse();
   }, []);
 
+  console.log(data[0])
+
   return (
     <div className="container">
       <div className="weatherApp">
-        <p>{data.name}</p>
+        <p>Monday</p>
         <img src={data.icon} alt="weather" />
         <span>
-          <p>{data.temp_min}°C</p>
-          <p>{data.temp_max}°C</p>
+          <p>{data.temp_min}°</p>
+          <p>{data.temp_max}°</p>
         </span>
       </div>
     </div>
