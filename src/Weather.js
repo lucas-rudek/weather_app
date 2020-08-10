@@ -10,12 +10,19 @@ export default function Weather() {
 
   useEffect(() => {
     async function apiResponse() {
-      let res = await axios(api_weather);
-      let newRes = res.data.daily.map((res) => console.log(res));
+      const res = await axios(api_weather);
+      const newRes = res.data.daily.map((res) => ({
+        day: res.dt,
+        min: res.temp.min,
+        max: res.temp.max,
+        icon: res.weather[0].icon
+      }));
       setData(newRes);
     }
     apiResponse();
   }, []);
+
+  console.log(data);
 
   return (
     <div className="container">
