@@ -6,7 +6,7 @@
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
-  width: 50%;
+  width: 75%;
 }
 
 .container {
@@ -37,4 +37,8 @@
   display: flex;
   font-size: 15px;
   justify-content: space-around;
+}
+
+.min {
+  color: black;
 }
