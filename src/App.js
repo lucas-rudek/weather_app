@@ -10,6 +10,7 @@ import Thursday from "./components/Thursday.js";
 import Tuesday from "./components/Tuesday.js";
 import Wednesday from "./components/Wednesday.js";
 import axios from "axios";
+import shortid from "shortid";
 
 let api_weather =
   "https://api.openweathermap.org/data/2.5/onecall?lat=-25.2142293&lon=-50.9824194&&appid=17b6590bec41785683bf963c68520f35&units=metric&lang=pt_br";
@@ -35,14 +36,11 @@ export default function App() {
           weekday: "long"
         })
       }));
-      //POP OUT O ULTIMO ELEMENTO ANTES DE SETDATA
+      newRes.pop();
       setData(newRes);
     }
     apiResponse();
   }, []);
-
-  const teste = "teste";
-
   return (
     <Router>
       <div className="App">
@@ -51,16 +49,13 @@ export default function App() {
           <Route
             path="/"
             exact
-            render={(props) => <Weather {...props} />}
-            name={teste}
+            render={(props) => <Weather {...props} data={data} />}
           />
-          <Route path="/Friday" exact component={Friday} />
-          <Route path="/Monday" exact component={Monday} />
-          <Route path="/Saturday" exact component={Saturday} />
-          <Route path="/Sunday" exact component={Sunday} />
-          <Route path="/Thursday" exact component={Thursday} />
-          <Route path="/Tuesday" exact component={Tuesday} />
-          <Route path="/Wednesday" exact component={Wednesday} />
+          <Route
+            path="/Friday"
+            exact
+            render={(props) => <Friday {...props} data={data} />}
+          />
         </Switch>
       </div>
     </Router>

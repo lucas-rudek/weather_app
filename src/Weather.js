@@ -1,23 +1,25 @@
 import React from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./styles.css";
+import shortid from "shortid";
 
 export default function Weather(props) {
   return (
-    <div>
-      <h1>Olá {props.name}</h1>
-    </div>
-    /* <div key="container" className="container">
-      {data.map((res, index) => (
-        <Link to={`/${res.day}`} style={{ textDecoration: "none" }}>
-          <div key="" className="weatherApp">
+    <div key="container" className="container">
+      {props.data.map((res, index) => (
+        <Link
+          key={shortid.generate()}
+          to={`/${res.day}`}
+          style={{ textDecoration: "none" }}
+        >
+          <div key={shortid.generate()} className="weatherApp">
             <p key={index}>{res.day}</p>
             <img
               key={res.icon}
               src={`http://openweathermap.org/img/wn/${res.icon}@2x.png`}
               alt=""
             />
-            <span>
+            <span key={shortid.generate()}>
               <p key={res.min}>{res.min}°</p>
               <p className="max" key={res.max}>
                 {res.max}°
@@ -26,6 +28,6 @@ export default function Weather(props) {
           </div>
         </Link>
       ))}
-    </div> */
+    </div>
   );
 }
