@@ -1,12 +1,68 @@
-import React from "react";
 import "./styles.css";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Weather from "./Weather.js";
+import Friday from "./components/Friday.js";
+import Monday from "./components/Monday.js";
+import Saturday from "./components/Saturday.js";
+import Sunday from "./components/Sunday.js";
+import Thursday from "./components/Thursday.js";
+import Tuesday from "./components/Tuesday.js";
+import Wednesday from "./components/Wednesday.js";
+import axios from "axios";
+
+let api_weather =
+  "https://api.openweathermap.org/data/2.5/onecall?lat=-25.2142293&lon=-50.9824194&&appid=17b6590bec41785683bf963c68520f35&units=metric&lang=pt_br";
 
 export default function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function apiResponse() {
+      const res = await axios(api_weather);
+      const newRes = res.data.daily.map((res, index) => ({
+        min:
+          res.temp.min < 10
+            ? res.temp.min.toString().slice(0, 1)
+            : res.temp.min.toString().slice(0, 2),
+        max:
+          res.temp.max < 10
+            ? res.temp.max.toString().slice(0, 1)
+            : res.temp.max.toString().slice(0, 2),
+        icon: res.weather[0].icon,
+        description: res.weather[0].description,
+        day: new Date(res.dt * 1000).toLocaleString("en-US", {
+          weekday: "long"
+        })
+      }));
+      //POP OUT O ULTIMO ELEMENTO ANTES DE SETDATA
+      setData(newRes);
+    }
+    apiResponse();
+  }, []);
+
+  const teste = "teste";
+
   return (
-    <div className="App">
-      <h1>One Week Weather App</h1>
-      <Weather />
-    </div>
+    <Router>
+      <div className="App">
+        <h1>One Week Weather App</h1>
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={(props) => <Weather {...props} />}
+            name={teste}
+          />
+          <Route path="/Friday" exact component={Friday} />
+          <Route path="/Monday" exact component={Monday} />
+          <Route path="/Saturday" exact component={Saturday} />
+          <Route path="/Sunday" exact component={Sunday} />
+          <Route path="/Thursday" exact component={Thursday} />
+          <Route path="/Tuesday" exact component={Tuesday} />
+          <Route path="/Wednesday" exact component={Wednesday} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
