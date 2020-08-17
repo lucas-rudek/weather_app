@@ -31,7 +31,9 @@ export default function App() {
             ? res.temp.max.toString().slice(0, 1)
             : res.temp.max.toString().slice(0, 2),
         icon: res.weather[0].icon,
-        description: res.weather[0].description,
+        description:
+          res.weather[0].description.charAt(0).toUpperCase() +
+          res.weather[0].description.slice(1),
         day: new Date(res.dt * 1000).toLocaleString("en-US", {
           weekday: "long"
         })
