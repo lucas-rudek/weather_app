@@ -20,9 +20,9 @@ export default function Weather(props) {
               alt=""
             />
             <span key={shortid.generate()}>
-              <p key={res.min}>{res.min}°</p>
-              <p className="max" key={res.max}>
-                {res.max}°
+              <p key={res.min_temp}>{res.min_temp}°</p>
+              <p className="max" key={res.max_temp}>
+                {res.max_temp}°
               </p>
             </span>
           </div>

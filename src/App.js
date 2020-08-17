@@ -13,7 +13,7 @@ import axios from "axios";
 import shortid from "shortid";
 
 let api_weather =
-  "https://api.openweathermap.org/data/2.5/onecall?lat=-25.2142293&lon=-50.9824194&&appid=17b6590bec41785683bf963c68520f35&units=metric&lang=pt_br";
+  "https://api.openweathermap.org/data/2.5/onecall?lat=-25.2142293&lon=-50.9824194&&appid=17b6590bec41785683bf963c68520f35&units=metric";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -22,14 +22,17 @@ export default function App() {
     async function apiResponse() {
       const res = await axios(api_weather);
       const newRes = res.data.daily.map((res, index) => ({
-        min:
+        temps: [res.temp.morn, res.temp.day, res.temp.eve, res.temp.night],
+        min_temp:
           res.temp.min < 10
             ? res.temp.min.toString().slice(0, 1)
             : res.temp.min.toString().slice(0, 2),
-        max:
+        max_temp:
           res.temp.max < 10
             ? res.temp.max.toString().slice(0, 1)
             : res.temp.max.toString().slice(0, 2),
+        rain: res.rain,
+        uvi: res.uvi,
         icon: res.weather[0].icon,
         description:
           res.weather[0].description.charAt(0).toUpperCase() +
@@ -43,6 +46,7 @@ export default function App() {
     }
     apiResponse();
   }, []);
+
   return (
     <Router>
       <div className="App">
