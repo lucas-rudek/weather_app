@@ -33,6 +33,8 @@ export default function App() {
             : res.temp.max.toString().slice(0, 2),
         rain: res.rain,
         uvi: res.uvi,
+        wind: res.wind_speed,
+        humidity: res.humidity,
         icon: res.weather[0].icon,
         description:
           res.weather[0].description.charAt(0).toUpperCase() +
@@ -61,6 +63,11 @@ export default function App() {
             path="/Friday"
             exact
             render={(props) => <Friday {...props} data={data} />}
+          />
+          <Route
+            path="/Monday"
+            exact
+            render={(props) => <Monday {...props} data={data} />}
           />
         </Switch>
       </div>
