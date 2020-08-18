@@ -59,7 +59,7 @@ export default function Thursday(props) {
             src="https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519933-30_Cloud_Rain-256.png"
             alt="Rain in mm"
           />
-          <p>{newData.rain} mm</p>
+          <p>{newData.rain == null ? `0 mm` : `${newData.rain} mm`}</p>
         </div>
         <div>
           <img
