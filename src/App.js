@@ -10,7 +10,6 @@ import Thursday from "./components/Thursday.js";
 import Tuesday from "./components/Tuesday.js";
 import Wednesday from "./components/Wednesday.js";
 import axios from "axios";
-import shortid from "shortid";
 
 let api_weather =
   "https://api.openweathermap.org/data/2.5/onecall?lat=-25.2142293&lon=-50.9824194&&appid=17b6590bec41785683bf963c68520f35&units=metric";
@@ -52,7 +51,7 @@ export default function App() {
   return (
     <Router>
       <div className="App">
-        <h1>One Week Weather App</h1>
+        <h1>One Week Weather App for Prudentópolis</h1>
         <Switch>
           <Route
             path="/"
@@ -68,6 +67,31 @@ export default function App() {
             path="/Monday"
             exact
             render={(props) => <Monday {...props} data={data} />}
+          />
+          <Route
+            path="/Saturday"
+            exact
+            render={(props) => <Saturday {...props} data={data} />}
+          />
+          <Route
+            path="/Sunday"
+            exact
+            render={(props) => <Sunday {...props} data={data} />}
+          />
+          <Route
+            path="/Thursday"
+            exact
+            render={(props) => <Thursday {...props} data={data} />}
+          />
+          <Route
+            path="/Tuesday"
+            exact
+            render={(props) => <Tuesday {...props} data={data} />}
+          />
+          <Route
+            path="/Wednesday"
+            exact
+            render={(props) => <Wednesday {...props} data={data} />}
           />
         </Switch>
       </div>

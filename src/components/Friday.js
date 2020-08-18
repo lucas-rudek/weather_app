@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import shortid from "shortid";
 import Chart from "chart.js";
-//key={shortid.generate()}
 
 export default function Friday(props) {
   const [newData, setData] = useState([]);
@@ -14,7 +12,17 @@ export default function Friday(props) {
           type: "line",
           data: {
             labels: ["Morning", "Noon", "Evening", "Night"],
-            datasets: [{ label: "Temperature over the day", data: res.temps }]
+            datasets: [
+              {
+                label: "Temperature in Celcius over the day",
+                backgroundColor: "rgba(156,167,240,0.2)",
+                borderColor: "rgba(81,102,240,1)",
+                borderWidth: 2,
+                hoverBackgroundColor: "rgba(156,167,240,0.2)",
+                hoverBorderColor: "rgba(81,102,240,1)",
+                data: res.temps
+              }
+            ]
           },
           options: {
             scales: {
@@ -42,14 +50,14 @@ export default function Friday(props) {
         <div>
           <img
             src="https://cdn0.iconfinder.com/data/icons/weather-433/24/weather-uv-512.png"
-            alt=""
+            alt="UV Index in nm"
           />
           <p>{newData.uvi} nm</p>
         </div>
         <div>
           <img
             src="https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519933-30_Cloud_Rain-256.png"
-            alt=""
+            alt="Rain in mm"
           />
           <p>{newData.rain} mm</p>
         </div>
@@ -57,7 +65,7 @@ export default function Friday(props) {
           <img
             src="https://cdn3.iconfinder.com/data/icons/weather-icons-8/512/weather-windy-256.png
             "
-            alt=""
+            alt="Wind speed in m/s"
           />
           <p>{newData.wind} m/s</p>
         </div>
@@ -65,12 +73,14 @@ export default function Friday(props) {
           <img
             src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-17-256.png
             "
-            alt=""
+            alt="Humidity in %"
           />
           <p>{newData.humidity} %</p>
         </div>
       </div>
-      <canvas id="myChart" width="600" height="300"></canvas>
+      <div className="chart-container">
+        <canvas id="myChart" width="600" height="350"></canvas>
+      </div>
     </div>
   );
 }

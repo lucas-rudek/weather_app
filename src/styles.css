@@ -53,6 +53,7 @@ body {
 .weatherDays {
   display: flex;
   justify-content: center;
+  margin: 0 0 20px 0;
 }
 
 .weatherDays > div {
@@ -73,4 +74,17 @@ body {
 
 .max {
   color: black;
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 50vh;
+  width: 100vw;
+}
+
+@media (min-width: 600px) {
+  .chart-container {
+    width: 40vw;
+  }
 }
