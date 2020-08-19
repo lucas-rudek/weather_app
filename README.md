@@ -11,7 +11,7 @@
 
 ## About The Project
 
-This is a small project used to improve habilities with some technologies stack. Has just one geolocation for now, but in future i will add the geolocation feature. I used React for the "days" component, Shortid for random key's in div elements, Axios + OpenWeather API for data and Chart.js to show temperature over the day.
+This is a small project used to improve habilities with some technologies stack. Has just one geolocation for now, but in future i will add the search geolocation feature. I used React for the "days" component, Shortid for random key's in div elements, Axios + OpenWeather API for data and Chart.js to show temperature over the day.
 
 ### Built With
 
@@ -21,12 +21,12 @@ This project as build with JS and this awesome technologies:
 - [Axios](https://www.npmjs.com/package/axios)
 - [Chart.js](https://www.chartjs.org/)
 - [Open Weather Map API](https://openweathermap.org/api)
-- [Short ID](https://www.npmjs.com/package/shortid)
+- [Shortid](https://www.npmjs.com/package/shortid)
 - [CodeSandbox](https://codesandbox.io/)
 
 ## Getting Started
 
-This project has made with Codesandbox for rapidly web development. If you want to use without it, just clone and install dependencies with node and npm. You can check the project online on: https://weather-app-beige-eight.vercel.app/
+This project has made with Codesandbox for rapidly web development. If you want to use without it, just clone and install dependencies with node and npm. You can check the project online (with my local city for a while) on: https://weather-app-beige-eight.vercel.app/
 
 ## Roadmap
 
