@@ -28,7 +28,7 @@ This project as build with JS and this awesome technologies:
 
 ## Getting Started
 
-This project has made with Codesandbox for rapidly web development. If you want to use without it, just clone and install dependencies with node and npm.
+This project has made with Codesandbox for rapidly web development. If you want to use without it, just clone and install dependencies with node and npm. You can check the project online on: https://weather-app-beige-eight.vercel.app/
 
 ## Roadmap
 
