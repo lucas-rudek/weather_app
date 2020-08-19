@@ -1,8 +1,7 @@
 <br />
 <p align="center">
-  <a href="https://www.shareicon.net/data/2016/11/15/853162_sun_512x512.png">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  
+  <img src="https://www.shareicon.net/data/2016/11/15/853162_sun_512x512.png" alt="Logo" width="80" height="80" />
 
   <h3 align="center">One Week Weather App</h3>
 
