@@ -10,7 +10,7 @@ body {
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
-  width: 75%;
+  width: 85%;
 }
 
 .container {
@@ -22,13 +22,14 @@ body {
 }
 
 .weatherApp {
-  margin: 10px;
+  padding: 10px;
   color: gray;
 }
 
 .weatherApp:hover {
   border: 1px solid rgb(217, 215, 215);
   background-color: rgb(240, 237, 237);
+  margin: -1px;
 }
 
 .weatherApp > p {
