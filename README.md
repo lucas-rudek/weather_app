@@ -11,8 +11,6 @@
 
 ## About The Project
 
-<img align="center" src="https://img.techpowerup.org/200819/onwa.png" alt="image" />
-
 This is a small project used to improve habilities with some technologies stack. Has just one geolocation for now, but in future i will add the geolocation feature. I used React for the "days" component, Shortid for random key's in div elements, Axios + OpenWeather API for data and Chart.js to show temperature over the day.
 
 ### Built With
